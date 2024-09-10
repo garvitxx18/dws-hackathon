@@ -3,8 +3,8 @@ import './App.css';
 import FinancialGoalsForm from './components/FinancialQuestionsMultiPage';
 import LoginPage from './components/Login';
 import ImportPortfolio from './components/ImportPortfolio';
-import FinancialQuestionsMultiPage from './components/FinancialQuestionsMultiPage';
 import FinAcademy from './components/FinAcademy';
+import FinancialQuestionsMultiPage from './components/FinancialQuestionsMultiPage';
 import Home from './components/home';
 import DWSLogo from "./assets/DWS.svg"
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -31,6 +31,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/question" element={<FinancialQuestionsMultiPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/academy" element={<FinAcademy />} />
           {/* <Route path="/importPortfolio" element={<ImportPortfolio/>}/> */}
         </Routes>
       </BrowserRouter>

@@ -9,12 +9,40 @@ const brokers = [
   { name: "Motilal Oswal", logo: "path_to_motilal_oswal_logo" },
 ];
 
+const midTermStrategy = [
+  { name: "EquityMutualFunds", value: 40, color: "blue-500" },
+  { name: "BalancedOrHybridFunds", value: 25, color: "orange-500" },
+  { name: "FixedDeposits", value: 20, color: "green-500" },
+  { name: "ShortTermBondFunds", value: 10, color: "purple-500" },
+  { name: "GoldETFsOrSovereignGoldBonds", value: 5, color: "yellow-500" },
+];
+
+const shortTermStrategy = [
+    { name: "HighYieldSavingsAccounts", value: 20, color: "blue-500" },
+    { name: "FixedDeposits", value: 30, color: "orange-500" },
+    { name: "LiquidMutualFunds", value: 25, color: "green-500" },
+    { name: "ShortTermDebtFunds", value: 15, color: "purple-500" },
+    { name: "GoldETFsOrSovereignGoldBonds", value: 10, color: "yellow-500" },
+];
+
+const longTermStrategy = [
+    { name: "EquityMutualFunds ", value: 50, color: "blue-500" },
+    { name: "EquityIndexFundsOrETFs", value: 20, color: "orange-500" },
+    { name: "BalancedOrHybridFunds", value: 20, color: "green-500" },
+    { name: "FixedDeposits", value: 10, color: "purple-500" },
+    { name: "GoldETFsOrSovereignGoldBonds", value: 5, color: "yellow-500" },
+]
+
 const Home = () => {
   const [strategy, setStrategy] = useState('Short Term');
 
   const handleStrategyChange = (event) => {
     setStrategy(event.target.value);
   };
+
+  // Calculate the stroke-dasharray based on the strategy values
+  const totalValue = shortTermStrategy.reduce((acc, item) => acc + item.value, 0);
+  let cumulativeOffset = 0;
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col justify-center items-center p-6 pt-24">
@@ -75,18 +103,35 @@ const Home = () => {
           {/* Dynamic Pie Chart */}
           <div className="flex justify-center items-center">
             <svg width="200" height="200" viewBox="0 0 42 42" className="transform rotate-90">
-              <circle className="text-blue-500 stroke-current" cx="21" cy="21" r="15.915" fill="transparent" strokeWidth="3.2" strokeDasharray="10 90" strokeDashoffset="25"></circle>
-              <circle className="text-orange-500 stroke-current" cx="21" cy="21" r="15.915" fill="transparent" strokeWidth="3.2" strokeDasharray="25 75" strokeDashoffset="15"></circle>
-              <circle className="text-green-500 stroke-current" cx="21" cy="21" r="15.915" fill="transparent" strokeWidth="3.2" strokeDasharray="25 75" strokeDashoffset="0"></circle>
-              <circle className="text-purple-500 stroke-current" cx="21" cy="21" r="15.915" fill="transparent" strokeWidth="3.2" strokeDasharray="40 60" strokeDashoffset="-25"></circle>
+              {shortTermStrategy.map((item, index) => {
+                const dashArray = (item.value / totalValue) * 100;
+                const strokeDasharray = `${dashArray} ${100 - dashArray}`;
+                const strokeDashoffset = cumulativeOffset;
+                cumulativeOffset -= dashArray;
+
+                return (
+                  <circle
+                    key={index}
+                    className={`text-${item.color} stroke-current`}
+                    cx="21"
+                    cy="21"
+                    r="15.915"
+                    fill="transparent"
+                    strokeWidth="3.2"
+                    strokeDasharray={strokeDasharray}
+                    strokeDashoffset={strokeDashoffset}
+                  />
+                );
+              })}
             </svg>
 
             {/* Chart Labels */}
             <div className="ml-6">
-              <p className="font-semibold text-gray-300">A: 10%</p>
-              <p className="font-semibold text-gray-300">B: 40%</p>
-              <p className="font-semibold text-gray-300">C: 25%</p>
-              <p className="font-semibold text-gray-300">D: 25%</p>
+              {shortTermStrategy.map((item, index) => (
+                <p key={index} className="font-semibold text-gray-300">
+                  {item.name}: {item.value}%
+                </p>
+              ))}
             </div>
           </div>
         </main>

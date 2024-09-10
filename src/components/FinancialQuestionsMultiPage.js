@@ -39,12 +39,12 @@ const FinancialQuestionsMultiPage = () => {
     if(formData.dmatAccount==='no'){
       navigate("/");
     }else{
-      navigate("/importPortfolio")
+      navigate("/")
     }
   };
 
   const nextPage = () => {
-    if (page < 4) setPage(page + 1);
+    if (page < 3) setPage(page + 1);
   };
 
   const prevPage = () => {
@@ -57,9 +57,9 @@ const FinancialQuestionsMultiPage = () => {
         {/* Progress bar */}
         <div className="flex items-center justify-between mb-6">
           <div className="relative w-5/6 h-1 bg-gray-600 rounded">
-            <div className="absolute top-0 left-0 h-full bg-green-500 rounded" style={{ width: `${(page / 4) * 100}%` }}></div>
+            <div className="absolute top-0 left-0 h-full bg-green-500 rounded" style={{ width: `${(page / 3) * 100}%` }}></div>
           </div>
-          <span className="ml-4 text-gray-400 text-sm w-fit">{page} of 4</span>
+          <span className="ml-4 text-gray-400 text-sm w-fit">{page} of 3</span>
         </div>
 
         {/* Page 1 */}
@@ -201,7 +201,7 @@ const FinancialQuestionsMultiPage = () => {
         )}
 
         {/* Page 5 */}
-        {page === 4 && (
+        {/* {page === 4 && (
           <div>
             <label className="block text-gray-400 mb-2">Do you want to import your Dmat account?</label>
             <div className="flex">
@@ -229,7 +229,7 @@ const FinancialQuestionsMultiPage = () => {
               </label>
             </div>
           </div>
-        )}
+        )} */}
 
         <div className="flex justify-between mt-6">
           {page > 1 && (
@@ -241,7 +241,7 @@ const FinancialQuestionsMultiPage = () => {
               Previous
             </button>
           )}
-          {page < 4 && (
+          {page < 3 && (
             <button
               type="button"
               onClick={nextPage}
@@ -250,7 +250,7 @@ const FinancialQuestionsMultiPage = () => {
               Next
             </button>
           )}
-          {page === 4 && (
+          {page === 3 && (
             <button
               type="submit"
               className="ml-auto px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
