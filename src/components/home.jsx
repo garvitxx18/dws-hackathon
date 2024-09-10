@@ -45,7 +45,7 @@ const Home = () => {
   let cumulativeOffset = 0;
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col justify-center items-center p-6 pt-24">
+    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center p-6 pt-24">
       {/* Content */}
       <div className="flex items-center justify-center bg-gray-900">
         <div className="flex flex-col items-center justify-center py-10 bg-gradient-to-br from-gray-800 to-gray-700 shadow-lg rounded-lg p-6 max-w-3xl w-full">

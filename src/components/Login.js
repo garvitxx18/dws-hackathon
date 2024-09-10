@@ -46,7 +46,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
+    <div className="flex h-screen items-center justify-center bg-black text-white">
       <div className="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-center text-white">
           {isSignUp ? "Sign Up" : "Login"}
@@ -115,7 +115,7 @@ const LoginPage = () => {
         <div className="flex justify-center mt-4">
           <button
             onClick={handleGoogleLogin}
-            className="w-full flex items-center justify-center px-4 py-2 bg-red-500 text-white hover:bg-red-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400"
+            className="w-full flex items-center justify-center px-4 py-2 bg-green-600 text-white hover:bg-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400"
           >
             <span className="mr-2">Google Login</span>
             <svg

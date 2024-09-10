@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import NanoIcon from '../assets/nano.svg'; // Adjust these paths to your image file locations
-import BeemerIcon from '../assets/tesla.svg';
-import RRIcon from '../assets/porsche.svg';
 import hospital from '../assets/hospital.svg';
 import home from '../assets/home.svg';
 import Money from '../assets/money-bag.svg';
-import castle from '../assets/icons8-house-64 (1).png';
 import { useNavigate } from 'react-router-dom';
 
 const FinancialQuestionsMultiPage = () => {
@@ -37,9 +33,9 @@ const FinancialQuestionsMultiPage = () => {
     e.preventDefault();
     console.log('Form Submitted:', formData);
     if(formData.dmatAccount==='no'){
-      navigate("/");
+      navigate("/home");
     }else{
-      navigate("/")
+      navigate("/home")
     }
   };
 
@@ -52,7 +48,7 @@ const FinancialQuestionsMultiPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white">
       <form onSubmit={handleSubmit} className="max-w-2xl w-full p-6 bg-gray-800 rounded-lg shadow-lg">
         {/* Progress bar */}
         <div className="flex items-center justify-between mb-6">
