@@ -63,7 +63,7 @@ const FinAcademy = () => {
       <div className="w-full max-w-4xl p-8 space-y-6 bg-gray-900 rounded-lg shadow-lg">
         <header className="text-center">
           <h1 className="text-4xl font-bold text-white">
-            Investment for Dummies: A Comprehensive Guide to Getting Started
+            Investment 101 : A Comprehensive Guide to Getting Started
           </h1>
           <p className="mt-2 text-lg text-gray-400">
             Welcome to FinAcademy’s ultimate guide to investing. If you’re new

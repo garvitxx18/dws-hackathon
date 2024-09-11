@@ -1,42 +1,49 @@
 import React from "react";
-import GrowwImg from "../assets/GrowwLogo.png"
+import Dhan from "../assets/GrowwLogo.png";
+import GrowwImg from "../assets/dhanLogo.jpg";
 import { useNavigate } from "react-router-dom";
 
 const brokers = [
-  { name: "5 Paisa", logo: "path_to_5paisa_logo" },
-  { name: "Angel One", logo: "path_to_angelone_logo" },
-  { name: "Dhan", logo: "path_to_dhan_logo" },
-  { name: "Groww", logo: "src/assets/groww.png" },
-  { name: "Motilal Oswal", logo: "path_to_motilal_oswal_logo" },
+  { name: "5 Paisa", logo: GrowwImg },
+  { name: "Angel One", logo: GrowwImg },
+  { name: "Dhan", logo: Dhan },
+  { name: "Groww", logo: GrowwImg },
+  { name: "Motilal Oswal", logo: GrowwImg },
 ];
 
-
 const ImportPortfolio = () => {
-
-    const navigate = useNavigate()
-
+  const navigate = useNavigate();
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="flex flex-col items-center justify-center py-10 bg-gradient-to-br from-gray-50 to-indigo-100 shadow-lg rounded-lg p-6 max-w-3xl w-full">
-        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Import in one click</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-gray-900 to-indigo-900">
+      <div className="flex flex-col items-center justify-center py-14 bg-gradient-to-br from-indigo-100 to-white shadow-2xl rounded-3xl p-10 max-w-4xl w-full transform transition-all duration-300 hover:scale-105">
+        <h2 className="text-4xl font-bold mb-10 text-center text-gray-900 drop-shadow-md">
+          Import Your Portfolio in One Click
+        </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           {brokers.map((broker, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-4 rounded-lg bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="flex flex-col items-center p-6 rounded-xl bg-white shadow-lg hover:shadow-2xl hover:bg-indigo-50 transition-shadow duration-300 transform hover:-translate-y-2"
             >
-              <img src={GrowwImg} alt={broker.name} className="h-12 w-12 mb-2" />
-              <span className="text-sm font-medium text-gray-700">{broker.name}</span>
+              <img
+                src={broker.logo}
+                alt={broker.name}
+                className="h-16 w-16 mb-4 rounded-full shadow-md"
+              />
+              <span className="text-lg font-semibold text-gray-800">{broker.name}</span>
             </div>
           ))}
         </div>
 
-        <button onClick={()=>{navigate("/")}} className="px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-full text-lg font-semibold hover:from-purple-600 hover:to-indigo-600 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-transform transform hover:scale-105">
+        <button
+          onClick={() => navigate("/")}
+          className="px-12 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full text-xl font-semibold hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-4 focus:ring-purple-400 transition-transform transform hover:scale-110 shadow-lg"
+        >
           Import Portfolio
         </button>
 
-        <p className="text-gray-500 mt-4 text-sm text-center">
+        <p className="text-gray-600 mt-6 text-md text-center">
           <strong>Note:</strong> Your trust is our priority. Rest assured, we do not store any of your broker's user details.
         </p>
       </div>

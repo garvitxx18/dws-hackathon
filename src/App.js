@@ -9,6 +9,8 @@ import Home from './components/home';
 import DWSLogo from "./assets/DWS.svg"
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import LandingPage from './components/LandingPage';
+import Analytics from './components/Analytics';
+import TopTrades from './components/TopTrades';
 
 function App() {
   return (
@@ -28,14 +30,17 @@ function App() {
         </div>
 
         <div className="flex space-x-8">
-          <a href="/about-us" className="text-base font-medium text-gray-300 hover:text-white transition duration-200">
-            About Us
+          <a href="/toptrades" className="text-base font-medium text-gray-300 hover:text-white transition duration-200">
+            Top Funds
           </a>
           <a href="/academy" className="text-base font-medium text-gray-300 hover:text-white transition duration-200">
             FinAcademy
           </a>
           <a href="/analytics" className="text-base font-medium text-gray-300 hover:text-white transition duration-200">
             Analytics
+          </a>
+          <a href="/about-us" className="text-base font-medium text-gray-300 hover:text-white transition duration-200">
+            About Us
           </a>
         </div>
       </nav>
@@ -46,6 +51,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/academy" element={<FinAcademy />} />
           <Route path="/home" element={<Home/>}/>
+          <Route path="/analytics" element={<Analytics/>}/>
+          <Route path="/toptrades" element={<TopTrades/>}/>
         </Routes>
       </BrowserRouter>
     </div>
